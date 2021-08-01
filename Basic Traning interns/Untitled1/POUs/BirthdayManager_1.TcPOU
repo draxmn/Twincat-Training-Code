@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+  <POU Name="BirthdayManager_1" Id="{60f433d5-de24-4da4-a22f-1b47244ffc8b}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK BirthdayManager_1
+VAR
+	current_date:DATE:=D#2021-7-27;
+	person:ARRAY[1..10]OF	T_person:=[(name:='Ali',age:=30,birthday:=D#2020-7-27),
+										(name:='Ali',age:=30,birthday:=D#2020-7-27),
+										(name:='Ali',age:=30,birthday:=D#2020-7-27),
+										(name:='Azmi',age:=36,birthday:=D#2021-7-27),
+										(name:='Ali',age:=30,birthday:=D#2020-7-27)];
+	i: INT;
+	message:string;
+	execute: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF	execute	THEN
+	FOR i:=1	TO	10	DO
+		IF	person[i].birthday=current_date	THEN
+			message:='happy Birthday ';
+			message:=CONCAT(message,person[i].name);
+			person[i].age:=person[i].age+1;
+			message:=concat(message,' you are now ');
+			message:=concat(message,USINT_TO_STRING(person[i].age));
+			execute:=FALSE;
+			RETURN;
+		END_IF
+	END_FOR
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="BirthdayManager_1">
+      <LineId Id="18" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="31" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+  <POU Name="MAIN" Id="{f5fa155c-c11b-4b38-90b1-5c87b7e0003d}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	
+	counter: UINT := 0;
+	switch3 AT%I*:BOOL;
+	switch4 AT%I*:BOOL;
+	Voltage AT%Q*:UINT;
+	Voltage1 AT%Q*:UINT;
+	switches AT%I*:ARRAY[0..3]OF	BOOL;
+	potentioneter1 AT%I*:INT;
+	fbBM: BirthdayManager_1;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[counter:=counter+1;
+voltage1:=potentioneter1;
+FOR counter:=1 TO 1000 DO
+	;
+END_FOR
+
+
+fbBM();]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="24" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="27" Count="1" />
+      <LineId Id="38" Count="1" />
+      <LineId Id="37" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

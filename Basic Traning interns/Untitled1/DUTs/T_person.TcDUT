@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+  <DUT Name="T_person" Id="{26c01260-6774-4b54-a8ba-fe3c5d9ef98b}">
+    <Declaration><![CDATA[TYPE T_person :
+STRUCT
+	name:	STRING;
+	age:	USINT;
+	birthday: DATE;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>
